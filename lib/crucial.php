@@ -88,3 +88,22 @@ class CrucialCURL {
     return $data;
   }
 }
+class CrucialHTTP {
+  public function fetch($url) {
+    return file_get_contents($url);
+  }
+  public function fetch_cache($url, $cachetime = 86400) {
+    $cache_file = 'cache/' . md5($url);
+    if (file_exists($cache_file)) {
+        i f(time() - filemtime($cache_file) > $cachetime) {
+            $cache = file_get_contents($url);
+            file_put_contents($cache_file, $cache);
+        } else {
+            $cache = file_get_contents($cache_file);
+        }
+    } else {
+        $cache = file_get_contents($url);
+    }
+    return $cache;
+  }
+}
