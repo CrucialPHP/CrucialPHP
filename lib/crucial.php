@@ -7,6 +7,15 @@ class CrucialXML {
     return xmlrpc_decode($obj);
   }
 }
+class CrucialCSV {
+  public function decode($csv) {
+    $data = [];
+    foreach ($csv as $line) {
+        $data[] = str_getcsv($line);
+    }
+    return $data;
+  }
+}
 class CrucialJSON {
   public function encode($obj) {
     return json_encode($obj);
