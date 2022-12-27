@@ -13,4 +13,5 @@ echo "[CrucialPHP] #                             #"
 echo "[CrucialPHP] #      CrucialPHP Script      #"
 echo "[CrucialPHP] # include 'CrucialPHP.lib.php #"
 echo "[CrucialPHP] #                             #"
-echo "[CrucialPHP] ###############################
+echo "[CrucialPHP] ###############################"
+echo "Script execution completed."
