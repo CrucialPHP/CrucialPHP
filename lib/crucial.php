@@ -97,6 +97,20 @@ class CrucialCURL {
     return $data;
   }
 }
+class CrucialError {
+  public function castFatal($error) {
+    if (strip_tags($error) !== $error) {
+      $this->cast('[CrucialPHP CrucialError Error]: You included HTML tags inside your error message. These shall be removed and are no longer supported.');
+    }
+    echo '<div style="background:#FF5050;color:white;padding:10px 25px;border:2px solid #AD0000;font-family:Verdana,Tahoma,sans-serif;"><h2>Fatal Error</h2><p><b>' . strip_tags($error) . '</b></p><p><small>Powered by <a style="color:white;" href="https://github.com/CrucialPHP/CrucialPHP">CrucialPHP/CrucialError</a></small></p></div>';
+  }
+  public function cast($error) {
+    if (strip_tags($error) !== $error) {
+      $this->cast('[CrucialPHP CrucialError Warning]: You included HTML tags inside your error message. These shall be removed and are no longer supported.');
+    }
+    echo '<div style="background:#FF5050;color:white;padding:10px 25px;border:2px solid #AD0000;font-family:Verdana,Tahoma,sans-serif;"><h2>Warning</h2><p><b>' . strip_tags($error) . '</b></p><p><small>Powered by <a style="color:white;" href="https://github.com/CrucialPHP/CrucialPHP">CrucialPHP/CrucialError</a></small></p></div>';
+  }
+}
 class CrucialHTTP {
   public function fetch($url) {
     return file_get_contents($url);
